@@ -82,62 +82,56 @@ const NotascortesisuListPage = () => {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>IsActive</th>
-                        <th>IsDeleted</th>
-                        <th>Year</th>
-                        <th>Numeroedicao</th>
-                        <th>Codigoinstituicaoensino</th>
-                        <th>Nomeinstituicao</th>
-                        <th>Siglainstituicao</th>
-                        <th>Organizacaoacademica</th>
-                        <th>Categoriaorganizacao</th>
-                        <th>Nomecampus</th>
-                        <th>Nomemunicipiocampus</th>
-                        <th>Ufcampus</th>
-                        <th>Regiaocampus</th>
-                        <th>Codigocurso</th>
-                        <th>Nomecurso</th>
-                        <th>Descricaograu</th>
+                        <th>Criado</th>
+                        <th>Ano</th>
+                        <th>N° Edição</th>
+                        <th>Cód. Instituição Ensino</th>
+                        <th>Nome Instituição</th>
+                        <th>Sigla Instituição</th>
+                        <th>Organização Acadêmica</th>
+                        <th>Categoria Organização</th>
+                        <th>Campus</th>
+                        <th>Município Campus</th>
+                        <th>UF Campus</th>
+                        <th>Região Campus</th>
+                        <th>Código Curso</th>
+                        <th>Nome Curso</th>
+                        <th>Descrição Grau</th>
                         <th>Turno</th>
-                        <th>Modoconcorrencia</th>
-                        <th>Desricaomodoconcorrencia</th>
-                        <th>Bonusacaoafirmativa</th>
-                        <th>Quantidadevagas</th>
-                        <th>Notacorte</th>
-                        <th>Quantidadeinscricoes</th>
+                        <th>Modalidade Concorrência</th>
+                        <th>Descrição Modalidade Concorrência</th>
+                        <th>Bônus Ação Afirmativa</th>
+                        <th>Quantidade Vagas</th>
+                        <th>Nota de Corte</th>
+                        <th>Quantidade Inscrições</th>
                     </tr>
                 </thead>
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
                         <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
-                        <td data-label='IsActive'><span>{item.IsActive}</span></td>
-                        <td data-label='IsDeleted'><span>{item.IsDeleted}</span></td>
-                        <td data-label='Year'><span>{item.Year}</span></td>
-                        <td data-label='Numeroedicao'><span>{item.Numeroedicao}</span></td>
-                        <td data-label='Codigoinstituicaoensino'><span>{item.Codigoinstituicaoensino}</span></td>
-                        <td data-label='Nomeinstituicao'><span>{item.Nomeinstituicao}</span></td>
-                        <td data-label='Siglainstituicao'><span>{item.Siglainstituicao}</span></td>
-                        <td data-label='Organizacaoacademica'><span>{item.Organizacaoacademica}</span></td>
-                        <td data-label='Categoriaorganizacao'><span>{item.Categoriaorganizacao}</span></td>
-                        <td data-label='Nomecampus'><span>{item.Nomecampus}</span></td>
-                        <td data-label='Nomemunicipiocampus'><span>{item.Nomemunicipiocampus}</span></td>
-                        <td data-label='Ufcampus'><span>{item.Ufcampus}</span></td>
-                        <td data-label='Regiaocampus'><span>{item.Regiaocampus}</span></td>
-                        <td data-label='Codigocurso'><span>{item.Codigocurso}</span></td>
-                        <td data-label='Nomecurso'><span>{item.Nomecurso}</span></td>
-                        <td data-label='Descricaograu'><span>{item.Descricaograu}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
+                        <td data-label='Ano'><span>{item.Year}</span></td>
+                        <td data-label='N° Edição'><span>{item.Numeroedicao}</span></td>
+                        <td data-label='Cód. Instituição Ensino'><span>{item.Codigoinstituicaoensino}</span></td>
+                        <td data-label='Nome Instituição'><span>{item.Nomeinstituicao}</span></td>
+                        <td data-label='Sigla Instituição'><span>{item.Siglainstituicao}</span></td>
+                        <td data-label='Organização Acadêmica'><span>{item.Organizacaoacademica}</span></td>
+                        <td data-label='Categoria Organização'><span>{item.Categoriaorganizacao}</span></td>
+                        <td data-label='Campus'><span>{item.Nomecampus}</span></td>
+                        <td data-label='Município Campus'><span>{item.Nomemunicipiocampus}</span></td>
+                        <td data-label='UF Campus'><span>{item.Ufcampus}</span></td>
+                        <td data-label='Região Campus'><span>{item.Regiaocampus}</span></td>
+                        <td data-label='Código Curso'><span>{item.Codigocurso}</span></td>
+                        <td data-label='Nome Curso'><span>{item.Nomecurso}</span></td>
+                        <td data-label='Descrição Grau'><span>{item.Descricaograu}</span></td>
                         <td data-label='Turno'><span>{item.Turno}</span></td>
-                        <td data-label='Modoconcorrencia'><span>{item.Modoconcorrencia}</span></td>
-                        <td data-label='Desricaomodoconcorrencia'><span>{item.Desricaomodoconcorrencia}</span></td>
-                        <td data-label='Bonusacaoafirmativa'><span>{item.Bonusacaoafirmativa}</span></td>
-                        <td data-label='Quantidadevagas'><span>{item.Quantidadevagas}</span></td>
-                        <td data-label='Notacorte'><span>{item.Notacorte}</span></td>
-                        <td data-label='Quantidadeinscricoes'><span>{item.Quantidadeinscricoes}</span></td>
+                        <td data-label='Modalidade Concorrência'><span>{item.Modoconcorrencia}</span></td>
+                        <td data-label='Descrição Modalidade Concorrência'><span>{item.Desricaomodoconcorrencia}</span></td>
+                        <td data-label='Bônus Ação Afirmativa'><span>{item.Bonusacaoafirmativa}</span></td>
+                        <td data-label='Quantidade Vagas'><span>{item.Quantidadevagas}</span></td>
+                        <td data-label='Nota de Corte'><span>{item.Notacorte}</span></td>
+                        <td data-label='Quantidade Inscrições'><span>{item.Quantidadeinscricoes}</span></td>
                     </tr>
                 ))}
                 </tbody>

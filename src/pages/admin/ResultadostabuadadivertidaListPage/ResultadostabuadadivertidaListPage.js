@@ -82,30 +82,24 @@ const ResultadostabuadadivertidaListPage = () => {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>IsActive</th>
-                        <th>IsDeleted</th>
+                        <th>Criado</th>
                         <th>Nome</th>
                         <th>Tempo</th>
-                        <th>NumeroAcertos</th>
+                        <th>Quantidade de Acertos</th>
                         <th>Tipo</th>
-                        <th>NumeroQuestoes</th>
+                        <th>Quantidade de Questões</th>
                     </tr>
                 </thead>
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
                         <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
-                        <td data-label='IsActive'><span>{item.IsActive}</span></td>
-                        <td data-label='IsDeleted'><span>{item.IsDeleted}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
                         <td data-label='Nome'><span>{item.Nome}</span></td>
                         <td data-label='Tempo'><span>{item.Tempo}</span></td>
-                        <td data-label='NumeroAcertos'><span>{item.NumeroAcertos}</span></td>
+                        <td data-label='Quantidade de Acertos'><span>{item.NumeroAcertos}</span></td>
                         <td data-label='Tipo'><span>{item.Tipo}</span></td>
-                        <td data-label='NumeroQuestoes'><span>{item.NumeroQuestoes}</span></td>
+                        <td data-label='Quantidade de Questões'><span>{item.NumeroQuestoes}</span></td>
                     </tr>
                 ))}
                 </tbody>

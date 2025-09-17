@@ -82,66 +82,60 @@ const PessoasfordevListPage = () => {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>IsActive</th>
-                        <th>IsDeleted</th>
+                        <th>Criado</th>
                         <th>Nome</th>
                         <th>Idade</th>
-                        <th>Cpf</th>
-                        <th>Rg</th>
-                        <th>Datanascimento</th>
+                        <th>CPF</th>
+                        <th>RG</th>
+                        <th>Data de Nascimento</th>
                         <th>Sexo</th>
                         <th>Signo</th>
-                        <th>Mae</th>
-                        <th>Pai</th>
-                        <th>Email</th>
+                        <th>Nome da Mãe</th>
+                        <th>Nome do Pai</th>
+                        <th>E-mail</th>
                         <th>Senha</th>
-                        <th>Cep</th>
-                        <th>Endereco</th>
-                        <th>Numero</th>
+                        <th>CEP</th>
+                        <th>Endereço</th>
+                        <th>N°</th>
                         <th>Bairro</th>
                         <th>Cidade</th>
                         <th>Estado</th>
-                        <th>Telefonefixo</th>
+                        <th>Telefone fixo</th>
                         <th>Celular</th>
                         <th>Altura</th>
                         <th>Peso</th>
-                        <th>Tiposanguineo</th>
-                        <th>Corfavorita</th>
+                        <th>Tipo sanguíneo</th>
+                        <th>Cor favorita</th>
                     </tr>
                 </thead>
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
                         <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
-                        <td data-label='IsActive'><span>{item.IsActive}</span></td>
-                        <td data-label='IsDeleted'><span>{item.IsDeleted}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
                         <td data-label='Nome'><span>{item.Nome}</span></td>
                         <td data-label='Idade'><span>{item.Idade}</span></td>
-                        <td data-label='Cpf'><span>{item.Cpf}</span></td>
-                        <td data-label='Rg'><span>{item.Rg}</span></td>
-                        <td data-label='Datanascimento'><span>{item.Datanascimento}</span></td>
+                        <td data-label='CPF'><span>{item.Cpf}</span></td>
+                        <td data-label='RG'><span>{item.Rg}</span></td>
+                        <td data-label='Data de Nascimento'><span>{item.Datanascimento}</span></td>
                         <td data-label='Sexo'><span>{item.Sexo}</span></td>
                         <td data-label='Signo'><span>{item.Signo}</span></td>
-                        <td data-label='Mae'><span>{item.Mae}</span></td>
-                        <td data-label='Pai'><span>{item.Pai}</span></td>
-                        <td data-label='Email'><span>{item.Email}</span></td>
+                        <td data-label='Nome da Mãe'><span>{item.Mae}</span></td>
+                        <td data-label='Nome do Pai'><span>{item.Pai}</span></td>
+                        <td data-label='E-mail'><span>{item.Email}</span></td>
                         <td data-label='Senha'><span>{item.Senha}</span></td>
-                        <td data-label='Cep'><span>{item.Cep}</span></td>
-                        <td data-label='Endereco'><span>{item.Endereco}</span></td>
-                        <td data-label='Numero'><span>{item.Numero}</span></td>
+                        <td data-label='CEP'><span>{item.Cep}</span></td>
+                        <td data-label='Endereço'><span>{item.Endereco}</span></td>
+                        <td data-label='Número'><span>{item.Numero}</span></td>
                         <td data-label='Bairro'><span>{item.Bairro}</span></td>
                         <td data-label='Cidade'><span>{item.Cidade}</span></td>
                         <td data-label='Estado'><span>{item.Estado}</span></td>
-                        <td data-label='Telefonefixo'><span>{item.Telefonefixo}</span></td>
+                        <td data-label='Telefone fixo'><span>{item.Telefonefixo}</span></td>
                         <td data-label='Celular'><span>{item.Celular}</span></td>
                         <td data-label='Altura'><span>{item.Altura}</span></td>
                         <td data-label='Peso'><span>{item.Peso}</span></td>
-                        <td data-label='Tiposanguineo'><span>{item.Tiposanguineo}</span></td>
-                        <td data-label='Corfavorita'><span>{item.Corfavorita}</span></td>
+                        <td data-label='Tipo sanguíneo'><span>{item.Tiposanguineo}</span></td>
+                        <td data-label='Cor favorita'><span>{item.Corfavorita}</span></td>
                     </tr>
                 ))}
                 </tbody>

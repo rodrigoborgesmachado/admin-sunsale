@@ -11,7 +11,18 @@ const AdminLayout = ({ children }) => {
     // de -> para | 
     "acoes": "Ações dos Usuários",
     "cartoes": "Cartões",
-    "contas": "Contas Bancárias"
+    "contas": "Contas Bancárias",
+    "crudformsinstall": "Crudforms Install",
+    "email": "E-mail",
+    "empresas": "Empresas",
+    "metas": "Metas",
+    "notassisu": "Notas Sisu",
+    "pessoas": "Pessoas",
+    "tabuadadivertida": "Tabuada Divertida",
+    "savedResultswpp": "Saved Results Wpp",
+    "usuarios": "Usuários",
+    "pokemon": "Pokémon"
+
   };
 
   const location = useLocation();

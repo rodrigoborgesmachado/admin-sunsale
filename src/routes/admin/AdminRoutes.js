@@ -65,18 +65,18 @@ const AdminRoutes = () => (
       <Route path="/Categoriaalimentos" element={<CategoriaalimentosListPage />} />
       <Route path="/ComentariosQuestoes" element={<ComentariosquestoesListPage />} />
       <Route path="/contas" element={<ContabancofordevListPage />} />
-      <Route path="/Crudformsinstalador" element={<CrudformsinstaladorListPage />} />
-      <Route path="/Email" element={<EmailListPage />} />
-      <Route path="/Empresafordev" element={<EmpresafordevListPage />} />
+      <Route path="/crudformsinstall" element={<CrudformsinstaladorListPage />} />
+      <Route path="/email" element={<EmailListPage />} />
+      <Route path="/empresas" element={<EmpresafordevListPage />} />
       <Route path="/Imagensbioma" element={<ImagensbiomaListPage />} />
       <Route path="/Imagensplanta" element={<ImagensplantaListPage />} />
       <Route path="/LicencasSunSalePro" element={<LicencassunsaleproListPage />} />
       <Route path="/Logger" element={<LoggerListPage />} />
-      <Route path="/Metas" element={<MetasListPage />} />
-      <Route path="/Notascortesisu" element={<NotascortesisuListPage />} />
+      <Route path="/metas" element={<MetasListPage />} />
+      <Route path="/notassisu" element={<NotascortesisuListPage />} />
       <Route path="/Palavras" element={<PalavrasListPage />} />
       <Route path="/Pesos" element={<PesosListPage />} />
-      <Route path="/Pessoasfordev" element={<PessoasfordevListPage />} />
+      <Route path="/pessoas" element={<PessoasfordevListPage />} />
       <Route path="/Plantas" element={<PlantasListPage />} />
       <Route path="/Postagem" element={<PostagemListPage />} />
       <Route path="/Prova" element={<ProvaListPage />} />
@@ -88,20 +88,20 @@ const AdminRoutes = () => (
       <Route path="/Respostasquestoes" element={<RespostasquestoesListPage />} />
       <Route path="/Respostasusuarios" element={<RespostasusuariosListPage />} />
       <Route path="/Resultadossoletrando" element={<ResultadossoletrandoListPage />} />
-      <Route path="/Resultadostabuadadivertida" element={<ResultadostabuadadivertidaListPage />} />
-      <Route path="/SavedResultsWpp" element={<SavedresultswppListPage />} />
+      <Route path="/tabuadadivertida" element={<ResultadostabuadadivertidaListPage />} />
+      <Route path="/savedResultswpp" element={<SavedresultswppListPage />} />
       <Route path="/Simulados" element={<SimuladosListPage />} />
       <Route path="/Tipoperfil" element={<TipoperfilListPage />} />
       <Route path="/TipoPostagem" element={<TipopostagemListPage />} />
       <Route path="/TipoProva" element={<TipoprovaListPage />} />
       <Route path="/TipoProvaAssociado" element={<TipoprovaassociadoListPage />} />
-      <Route path="/Usuarios" element={<UsuariosListPage />} />
+      <Route path="/usuarios" element={<UsuariosListPage />} />
       <Route path="/Usuarioscrudforms" element={<UsuarioscrudformsListPage />} />
       <Route path="/Veiculosfordev" element={<VeiculosfordevListPage />} />
       <Route path="/Verboconjugado" element={<VerboconjugadoListPage />} />
       <Route path="/Verbos" element={<VerbosListPage />} />
       <Route path="/VerificacaoUsuario" element={<VerificacaousuarioListPage />} />
-      <Route path="/WhosThatPokemonResult" element={<WhosthatpokemonresultListPage />} />
+      <Route path="/pokemon" element={<WhosthatpokemonresultListPage />} />
       <Route path="/*" element={<DashboardPage />} />
       </Routes>
   </AdminLayout>

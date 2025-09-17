@@ -82,30 +82,24 @@ const EmailListPage = () => {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>IsActive</th>
-                        <th>IsDeleted</th>
-                        <th>Destinatario</th>
+                        <th>Criado</th>
+                        <th>Destinatário</th>
                         <th>Assunto</th>
-                        <th>Texto</th>
+                        <th>Mensagem</th>
                         <th>Status</th>
-                        <th>Observacao</th>
+                        <th>Observação</th>
                     </tr>
                 </thead>
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
                         <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
-                        <td data-label='IsActive'><span>{item.IsActive}</span></td>
-                        <td data-label='IsDeleted'><span>{item.IsDeleted}</span></td>
-                        <td data-label='Destinatario'><span>{item.Destinatario}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
+                        <td data-label='Destinatário'><span>{item.Destinatario}</span></td>
                         <td data-label='Assunto'><span>{item.Assunto}</span></td>
-                        <td data-label='Texto'><span>{item.Texto}</span></td>
+                        <td data-label='Mensagem'><span>{item.Texto}</span></td>
                         <td data-label='Status'><span>{item.Status}</span></td>
-                        <td data-label='Observacao'><span>{item.Observacao}</span></td>
+                        <td data-label='Observação'><span>{item.Observacao}</span></td>
                     </tr>
                 ))}
                 </tbody>

@@ -82,10 +82,7 @@ const WhosthatpokemonresultListPage = () => {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>IsActive</th>
-                        <th>IsDeleted</th>
+                        <th>Criado</th>
                         <th>Nome</th>
                         <th>Tempo</th>
                         <th>Acertos</th>
@@ -104,10 +101,7 @@ const WhosthatpokemonresultListPage = () => {
                 {items.map((item) => (
                     <tr key={item.Id}>
                         <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
-                        <td data-label='IsActive'><span>{item.IsActive}</span></td>
-                        <td data-label='IsDeleted'><span>{item.IsDeleted}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
                         <td data-label='Nome'><span>{item.Nome}</span></td>
                         <td data-label='Tempo'><span>{item.Tempo}</span></td>
                         <td data-label='Acertos'><span>{item.Acertos}</span></td>

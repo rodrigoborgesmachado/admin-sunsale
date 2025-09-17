@@ -82,34 +82,28 @@ const UsuariosListPage = () => {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>IsActive</th>
-                        <th>IsDeleted</th>
+                        <th>Criado</th>
                         <th>Login</th>
-                        <th>Pass</th>
+                        <th>Senha</th>
                         <th>Nome</th>
-                        <th>Email</th>
-                        <th>Datanascimento</th>
+                        <th>E-mail</th>
+                        <th>Data de Nascimento</th>
                         <th>Admin</th>
-                        <th>Instituicao</th>
+                        <th>Instituição</th>
                     </tr>
                 </thead>
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
                         <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
-                        <td data-label='IsActive'><span>{item.IsActive}</span></td>
-                        <td data-label='IsDeleted'><span>{item.IsDeleted}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
                         <td data-label='Login'><span>{item.Login}</span></td>
-                        <td data-label='Pass'><span>{item.Pass}</span></td>
+                        <td data-label='Senha'><span>{item.Pass}</span></td>
                         <td data-label='Nome'><span>{item.Nome}</span></td>
-                        <td data-label='Email'><span>{item.Email}</span></td>
-                        <td data-label='Datanascimento'><span>{putDateOnPattern(item.Datanascimento)}</span></td>
+                        <td data-label='E-mail'><span>{item.Email}</span></td>
+                        <td data-label='Data de Nascimento'><span>{putDateOnPattern(item.Datanascimento)}</span></td>
                         <td data-label='Admin'><span>{item.Admin}</span></td>
-                        <td data-label='Instituicao'><span>{item.Instituicao}</span></td>
+                        <td data-label='Instituição'><span>{item.Instituicao}</span></td>
                     </tr>
                 ))}
                 </tbody>

@@ -82,24 +82,18 @@ const CrudformsinstaladorListPage = () => {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>IsActive</th>
-                        <th>IsDeleted</th>
-                        <th>Versao</th>
-                        <th>Diretorio</th>
+                        <th>Criado</th>
+                        <th>Versão</th>
+                        <th>Diretório</th>
                     </tr>
                 </thead>
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
                         <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
-                        <td data-label='IsActive'><span>{item.IsActive}</span></td>
-                        <td data-label='IsDeleted'><span>{item.IsDeleted}</span></td>
-                        <td data-label='Versao'><span>{item.Versao}</span></td>
-                        <td data-label='Diretorio'><span>{item.Diretorio}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
+                        <td data-label='Versão'><span>{item.Versao}</span></td>
+                        <td data-label='Diretório'><span>{item.Diretorio}</span></td>
                     </tr>
                 ))}
                 </tbody>

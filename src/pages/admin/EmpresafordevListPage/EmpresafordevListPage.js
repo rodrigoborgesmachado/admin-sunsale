@@ -82,23 +82,20 @@ const EmpresafordevListPage = () => {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>IsActive</th>
-                        <th>IsDeleted</th>
+                        <th>Criado</th>
                         <th>Nome</th>
-                        <th>Cnpj</th>
-                        <th>Ie</th>
-                        <th>Dataabertura</th>
+                        <th>CNPJ</th>
+                        <th>Inscrição Estadual</th>
+                        <th>Data de Abertura</th>
                         <th>Site</th>
                         <th>Email</th>
-                        <th>Cep</th>
-                        <th>Endereco</th>
-                        <th>Numero</th>
+                        <th>CEP</th>
+                        <th>Enderço</th>
+                        <th>Número</th>
                         <th>Bairro</th>
                         <th>Cidade</th>
                         <th>Estado</th>
-                        <th>Telefonefixo</th>
+                        <th>Telefone Fixo</th>
                         <th>Celular</th>
                     </tr>
                 </thead>
@@ -106,23 +103,20 @@ const EmpresafordevListPage = () => {
                 {items.map((item) => (
                     <tr key={item.Id}>
                         <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
-                        <td data-label='IsActive'><span>{item.IsActive}</span></td>
-                        <td data-label='IsDeleted'><span>{item.IsDeleted}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
                         <td data-label='Nome'><span>{item.Nome}</span></td>
-                        <td data-label='Cnpj'><span>{item.Cnpj}</span></td>
-                        <td data-label='Ie'><span>{item.Ie}</span></td>
-                        <td data-label='Dataabertura'><span>{item.Dataabertura}</span></td>
+                        <td data-label='CNPJ'><span>{item.Cnpj}</span></td>
+                        <td data-label='Inscrição Estadual'><span>{item.Ie}</span></td>
+                        <td data-label='Data de Abertura'><span>{item.Dataabertura}</span></td>
                         <td data-label='Site'><span>{item.Site}</span></td>
                         <td data-label='Email'><span>{item.Email}</span></td>
-                        <td data-label='Cep'><span>{item.Cep}</span></td>
-                        <td data-label='Endereco'><span>{item.Endereco}</span></td>
-                        <td data-label='Numero'><span>{item.Numero}</span></td>
+                        <td data-label='CEP'><span>{item.Cep}</span></td>
+                        <td data-label='Endereço'><span>{item.Endereco}</span></td>
+                        <td data-label='Número'><span>{item.Numero}</span></td>
                         <td data-label='Bairro'><span>{item.Bairro}</span></td>
                         <td data-label='Cidade'><span>{item.Cidade}</span></td>
                         <td data-label='Estado'><span>{item.Estado}</span></td>
-                        <td data-label='Telefonefixo'><span>{item.Telefonefixo}</span></td>
+                        <td data-label='Telefone Fixo'><span>{item.Telefonefixo}</span></td>
                         <td data-label='Celular'><span>{item.Celular}</span></td>
                     </tr>
                 ))}

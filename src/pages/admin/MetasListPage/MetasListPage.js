@@ -82,26 +82,20 @@ const MetasListPage = () => {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>IsActive</th>
-                        <th>IsDeleted</th>
+                        <th>Criado</th>
                         <th>Meta</th>
-                        <th>Email</th>
-                        <th>DataObjetivo</th>
+                        <th>E-mail</th>
+                        <th>Concluir até</th>
                     </tr>
                 </thead>
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
                         <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
-                        <td data-label='IsActive'><span>{item.IsActive}</span></td>
-                        <td data-label='IsDeleted'><span>{item.IsDeleted}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
                         <td data-label='Meta'><span>{item.Meta}</span></td>
-                        <td data-label='Email'><span>{item.Email}</span></td>
-                        <td data-label='DataObjetivo'><span>{putDateOnPattern(item.DataObjetivo)}</span></td>
+                        <td data-label='E-mail'><span>{item.Email}</span></td>
+                        <td data-label='Concluir até'><span>{putDateOnPattern(item.DataObjetivo)}</span></td>
                     </tr>
                 ))}
                 </tbody>
