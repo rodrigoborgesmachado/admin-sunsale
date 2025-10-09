@@ -19,8 +19,9 @@ import TargetIcon from '../../icons/TargetIcon';
 import StudentIcon from '../../icons/StudentIcon';
 import PeopleIcon from '../../icons/PeopleIcon';
 import CalculatorIcon from '../../icons/CalculatorIcon';
-import ClipboardIcon from '../../icons/ClipboardIcon';
 import PokemonIcon from '../../icons/PokemonIcon';
+import DevPersonIcon from '../../icons/DevPersonIcon';
+import JsonIcon from '../../icons/JsonIcon ';
 
 const AdminSidebar = () => {
   const location = useLocation();
@@ -66,7 +67,7 @@ const AdminSidebar = () => {
         {isAdmin && <a href="/notassisu" className={pathSegments[0] === 'notassisu' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><StudentIcon color='white'/>Notas Sisu</a>}
         {isAdmin && <a href="/Palavras" className={pathSegments[0] === 'Palavras' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><BasketIcon color='white'/>Palavras</a>}
         {isAdmin && <a href="/Pesos" className={pathSegments[0] === 'Pesos' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><BasketIcon color='white'/>Pesos</a>}
-        {isAdmin && <a href="/pessoas" className={pathSegments[0] === 'pessoas' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><PeopleIcon color='white'/>Pessoas</a>}
+        {isAdmin && <a href="/pessoas" className={pathSegments[0] === 'pessoas' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><DevPersonIcon color='white'/>Pessoas</a>}
         {isAdmin && <a href="/Plantas" className={pathSegments[0] === 'Plantas' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><BasketIcon color='white'/>Plantas</a>}
         {isAdmin && <a href="/Postagem" className={pathSegments[0] === 'Postagem' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><BasketIcon color='white'/>Postagem</a>}
         {isAdmin && <a href="/Prova" className={pathSegments[0] === 'Prova' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><BasketIcon color='white'/>Prova</a>}
@@ -79,7 +80,7 @@ const AdminSidebar = () => {
         {isAdmin && <a href="/Respostasusuarios" className={pathSegments[0] === 'Respostasusuarios' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><BasketIcon color='white'/>Respostasusuarios</a>}
         {isAdmin && <a href="/Resultadossoletrando" className={pathSegments[0] === 'Resultadossoletrando' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><BasketIcon color='white'/>Resultadossoletrando</a>}
         {isAdmin && <a href="/tabuadadivertida" className={pathSegments[0] === 'tabuadadivertida' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><CalculatorIcon color='white'/>Tabuada Divertida</a>}
-        {isAdmin && <a href="/savedResultswpp" className={pathSegments[0] === 'savedResultswpp' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><ClipboardIcon color='white'/>Saved Results Wpp</a>}
+        {isAdmin && <a href="/savedResultswpp" className={pathSegments[0] === 'savedResultswpp' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><JsonIcon color='white'/>Saved Results Wpp</a>}
         {isAdmin && <a href="/Simulados" className={pathSegments[0] === 'Simulados' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><BasketIcon color='white'/>Simulados</a>}
         {isAdmin && <a href="/Tipoperfil" className={pathSegments[0] === 'Tipoperfil' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><BasketIcon color='white'/>Tipoperfil</a>}
         {isAdmin && <a href="/TipoPostagem" className={pathSegments[0] === 'TipoPostagem' ? "sidebar__menu-item sidebar__menu-item-selected" : "sidebar__menu-item"}><BasketIcon color='white'/>TipoPostagem</a>}

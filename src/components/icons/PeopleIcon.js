@@ -4,67 +4,75 @@ const PeopleIcon = ({ size = 24, color = "#1C274C" }) => {
   const styles = {
     transition: "all 0.3s ease-in-out",
     cursor: "pointer",
-    color, // habilita currentColor no CSS
   };
 
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 24 24"
+      viewBox="0 0 36 36"
       xmlns="http://www.w3.org/2000/svg"
       style={styles}
       className="people-icon"
     >
-      {/* pessoa central */}
+      {/* Pessoa central */}
       <circle
-        cx="12"
-        cy="8.5"
-        r="2.25"
-        stroke="currentColor"
-        strokeWidth="2"
+        cx="18"
+        cy="13"
+        r="4.5"
+        stroke={color}
+        strokeWidth="2.8"
         fill="transparent"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
-        d="M7.75 16.25C8.6 14.7 10.2 13.75 12 13.75C13.8 13.75 15.4 14.7 16.25 16.25"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
+        d="M10 27C10 22.5 13.5 19 18 19C22.5 19 26 22.5 26 27"
+        stroke={color}
+        strokeWidth="2.8"
         fill="transparent"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
 
-      {/* pessoa esquerda (traseira) */}
+      {/* Pessoa esquerda */}
       <circle
-        cx="6.5"
-        cy="10"
-        r="1.75"
-        stroke="currentColor"
-        strokeWidth="2"
+        cx="8.5"
+        cy="15"
+        r="3.2"
+        stroke={color}
+        strokeWidth="2.4"
         fill="transparent"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
-        d="M3.5 18.25C4.3 16.8 5.9 15.9 7.6 15.9"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
+        d="M3 27C3 23.5 5.5 21 8.5 21C11.5 21 14 23.5 14 27"
+        stroke={color}
+        strokeWidth="2.4"
         fill="transparent"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
 
-      {/* pessoa direita (traseira) */}
+      {/* Pessoa direita */}
       <circle
-        cx="17.5"
-        cy="10"
-        r="1.75"
-        stroke="currentColor"
-        strokeWidth="2"
+        cx="27.5"
+        cy="15"
+        r="3.2"
+        stroke={color}
+        strokeWidth="2.4"
         fill="transparent"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
-        d="M16.4 15.9C18.1 15.9 19.7 16.8 20.5 18.25"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
+        d="M22 27C22 23.5 24.5 21 27.5 21C30.5 21 33 23.5 33 27"
+        stroke={color}
+        strokeWidth="2.4"
         fill="transparent"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

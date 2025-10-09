@@ -1,20 +1,68 @@
-// TargetIcon.jsx
-const TargetIcon = ({ size = 21, color = "#1B4332" }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    {/* As formas usam a prop `color` para manter as linhas/áreas sólidas */}
-    <path d="M19 1C19 0.447715 19.4477 0 20 0C20.5523 0 21 0.447715 21 1V3.58579C21 3.851 20.8946 4.10536 20.7071 4.29289L12.2929 12.7071C11.9024 13.0976 11.2692 13.0976 10.8787 12.7071C10.4882 12.3166 10.4882 11.6834 10.8787 11.2929L19 3.17157V1Z" fill={color} />
-    <path d="M17.3924 3C17.3924 2.44772 17.8401 2 18.3924 2H22C22.5523 2 23 2.44772 23 3C23 3.55228 22.5523 4 22 4H18.3924C17.8401 4 17.3924 3.55228 17.3924 3Z" fill={color} />
-    <path d="M4 6C4 4.34315 5.34315 3 7 3H11C11.5523 3 12 3.44772 12 4C12 4.55228 11.5523 5 11 5H7C6.44772 5 6 5.44772 6 6V17C6 18.6569 7.34315 20 9 20H18C18.5523 20 19 20.4477 19 21C19 21.5523 18.5523 22 18 22H9C6.23858 22 4 19.7614 4 17V6Z" fill={color} />
-    <path d="M14 7C14 6.44772 14.4477 6 15 6H20C20.5523 6 21 6.44772 21 7C21 7.55228 20.5523 8 20 8H15C14.4477 8 14 7.55228 14 7Z" fill={color} />
-    <path d="M14 11C14 10.4477 14.4477 10 15 10H20C20.5523 10 21 10.4477 21 11C21 11.5523 20.5523 12 20 12H15C14.4477 12 14 11.5523 14 11Z" fill={color} />
-    <path d="M14 15C14 14.4477 14.4477 14 15 14H20C20.5523 14 21 14.4477 21 15C21 15.5523 20.5523 16 20 16H15C14.4477 16 14 15.5523 14 15Z" fill={color} />
-  </svg>
-);
+import React from "react";
+
+const TargetIcon = ({ size = 24, color = "#1C274C" }) => {
+  const styles = {
+    transition: "all 0.3s ease-in-out",
+    cursor: "pointer",
+  };
+
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 36 36"
+      xmlns="http://www.w3.org/2000/svg"
+      style={styles}
+      className="target-icon"
+    >
+      {/* Círculo externo */}
+      <circle
+        cx="18"
+        cy="18"
+        r="14"
+        stroke={color}
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="transparent"
+      />
+
+      {/* Círculo interno */}
+      <circle
+        cx="18"
+        cy="18"
+        r="6"
+        stroke={color}
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="transparent"
+      />
+
+      {/* Ponto central */}
+      <circle cx="18" cy="18" r="1.6" fill={color} />
+
+      {/* Dardo cravado */}
+      <path
+        d="M24 10L20.5 13.5L22.5 15.5L26 12Z" /* pontinha */
+        fill={color}
+      />
+      <line
+        x1="22.5"
+        y1="15.5"
+        x2="18"
+        y2="18"
+        stroke={color}
+        strokeWidth="2.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M25.5 8.5L27.5 10.5L26 12L24 10Z" /* rabinho do dardo */
+        fill={color}
+      />
+    </svg>
+  );
+};
 
 export default TargetIcon;
