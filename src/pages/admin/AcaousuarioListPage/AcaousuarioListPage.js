@@ -18,6 +18,7 @@ const AcaousuarioListPage = () => {
     const [endDate, setEndDate] = useState('');
     const [totalPages, setTotalPages] = useState(1);
     const [totalItens, setTotalItens] = useState(0);
+    const [refresh, setRefresh] = useState(0);
     const quantity = configService.getDefaultNumberOfItemsTable(); 
     const orderBy = "Id:Desc";
 
@@ -37,7 +38,7 @@ const AcaousuarioListPage = () => {
             }
         };
         fetchItems();
-    }, [page, quantity, searchTerm, startDate, endDate, dispatch]);
+    }, [page, quantity, searchTerm, startDate, endDate, dispatch, refresh]);
 
     const handlePageChange = (newPage) => {
         if (newPage > 0 && newPage <= totalPages) {
@@ -70,6 +71,25 @@ const AcaousuarioListPage = () => {
         }
     };
 
+    const updateStatus =  async (isActive,id) => {
+        try {
+            dispatch(setLoading(true));
+            const response = await acaousuarioApi.updateStatus({ status: isActive === 1 ? 'IsDeleted' : 'IsActive', id: id });
+            
+            if (response) {
+                toast.success('Atualizado com sucesso!');
+                setRefresh(prev => prev +1);
+            } else {
+                toast.error('Erro ao atualizar o item!');
+            }
+        } catch (error) {
+            toast.error('Erro ao atualizar o item!');
+        }
+        finally{
+            dispatch(setLoading(false));
+        }
+    }
+
     return (
     <div className="container-admin-page">
         <h1>Lista dos Itens</h1>
@@ -85,6 +105,7 @@ const AcaousuarioListPage = () => {
                         <th>Usuário</th>
                         <th>Ação</th>
                         <th>Criado</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -94,6 +115,7 @@ const AcaousuarioListPage = () => {
                         <td data-label='Usuário'><span>{item.Usuario.Email}</span></td>
                         <td data-label='Ação'><span>{item.Acao}</span></td>
                         <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
+                        <td data-label=''><button onClick={(e) => updateStatus(item.IsActive, item.Id)} className={item.IsActive ? 'item-active main-button' : 'item-inactive main-button'}>{item.IsActive ? 'Desativar' : 'Ativar'}</button></td>
                     </tr>
                 ))}
                 </tbody>

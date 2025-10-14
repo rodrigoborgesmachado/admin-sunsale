@@ -18,6 +18,7 @@ const CartaocreditodevtoolsListPage = () => {
     const [endDate, setEndDate] = useState('');
     const [totalPages, setTotalPages] = useState(1);
     const [totalItens, setTotalItens] = useState(0);
+    const [refresh, setRefresh] = useState(0);
     const quantity = configService.getDefaultNumberOfItemsTable(); 
     const orderBy = "Id:Desc";
 
@@ -37,7 +38,7 @@ const CartaocreditodevtoolsListPage = () => {
             }
         };
         fetchItems();
-    }, [page, quantity, searchTerm, startDate, endDate, dispatch]);
+    }, [page, quantity, searchTerm, startDate, endDate, dispatch, refresh]);
 
     const handlePageChange = (newPage) => {
         if (newPage > 0 && newPage <= totalPages) {
@@ -70,6 +71,25 @@ const CartaocreditodevtoolsListPage = () => {
         }
     };
 
+    const updateStatus =  async (isActive,id) => {
+        try {
+            dispatch(setLoading(true));
+            const response = await cartaocreditodevtoolsApi.updateStatus({ status: isActive === 1 ? 'IsDeleted' : 'IsActive', id: id });
+            
+            if (response) {
+                toast.success('Atualizado com sucesso!');
+                setRefresh(prev => prev +1);
+            } else {
+                toast.error('Erro ao atualizar o item!');
+            }
+        } catch (error) {
+            toast.error('Erro ao atualizar o item!');
+        }
+        finally{
+            dispatch(setLoading(false));
+        }
+    }
+
     return (
     <div className="container-admin-page">
         <h1>Lista dos Itens</h1>
@@ -86,6 +106,7 @@ const CartaocreditodevtoolsListPage = () => {
                         <th>Nº Cartão</th>
                         <th>Validade</th>
                         <th>CVV</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -96,6 +117,7 @@ const CartaocreditodevtoolsListPage = () => {
                         <td data-label='Nº Cartão'><span>{item.Numerocartao}</span></td>
                         <td data-label='Validade'><span>{item.Datavalidade}</span></td>
                         <td data-label='CVV'><span>{item.Codigoseguranca}</span></td>
+                        <td data-label=''><button onClick={(e) => updateStatus(item.IsActive, item.Id)} className={item.IsActive ? 'item-active main-button' : 'item-inactive main-button'}>{item.IsActive ? 'Desativar' : 'Ativar'}</button></td>
                     </tr>
                 ))}
                 </tbody>
