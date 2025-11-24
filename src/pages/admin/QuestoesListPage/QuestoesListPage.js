@@ -18,6 +18,7 @@ const QuestoesListPage = () => {
     const [endDate, setEndDate] = useState('');
     const [totalPages, setTotalPages] = useState(1);
     const [totalItens, setTotalItens] = useState(0);
+    const [refresh, setRefresh] = useState(0);
     const quantity = configService.getDefaultNumberOfItemsTable(); 
     const orderBy = "Id:Desc";
 
@@ -37,7 +38,7 @@ const QuestoesListPage = () => {
             }
         };
         fetchItems();
-    }, [page, quantity, searchTerm, startDate, endDate, dispatch]);
+    }, [page, quantity, searchTerm, startDate, endDate, refresh, dispatch]);
 
     const handlePageChange = (newPage) => {
         if (newPage > 0 && newPage <= totalPages) {
@@ -70,6 +71,25 @@ const QuestoesListPage = () => {
         }
     };
 
+    const updateStatus =  async (isActive,id) => {
+        try {
+            dispatch(setLoading(true));
+            const response = await questoesApi.updateStatus({ status: isActive === 1 ? 'IsDeleted' : 'IsActive', id: id });
+            
+            if (response) {
+                toast.success('Atualizado com sucesso!');
+                setRefresh(prev => prev +1);
+            } else {
+                toast.error('Erro ao atualizar o item!');
+            }
+        } catch (error) {
+            toast.error('Erro ao atualizar o item!');
+        }
+        finally{
+            dispatch(setLoading(false));
+        }
+    };
+
     return (
     <div className="container-admin-page">
         <h1>Lista dos Itens</h1>
@@ -81,37 +101,29 @@ const QuestoesListPage = () => {
             <table className="admin-table">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>IsActive</th>
-                        <th>IsDeleted</th>
-                        <th>Campoquestao</th>
-                        <th>Observacaoquestao</th>
-                        <th>Materia</th>
-                        <th>IdProva</th>
-                        <th>Numeroquestao</th>
-                        <th>Updatedby</th>
-                        <th>Createdby</th>
+                        <th>ID</th>
+                        <th>Criado</th>
+                        <th>Campo Questão</th>
+                        <th>Observação Questão</th>
+                        <th>Matéria</th>
+                        <th>ID Prova</th>
+                        <th>Número Questão</th>
                         <th>Assunto</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
-                        <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
-                        <td data-label='IsActive'><span>{item.IsActive}</span></td>
-                        <td data-label='IsDeleted'><span>{item.IsDeleted}</span></td>
-                        <td data-label='Campoquestao'><span>{item.Campoquestao}</span></td>
-                        <td data-label='Observacaoquestao'><span>{item.Observacaoquestao}</span></td>
-                        <td data-label='Materia'><span>{item.Materia}</span></td>
-                        <td data-label='IdProva'><span>{item.IdProva}</span></td>
-                        <td data-label='Numeroquestao'><span>{item.Numeroquestao}</span></td>
-                        <td data-label='Updatedby'><span>{item.Updatedby}</span></td>
-                        <td data-label='Createdby'><span>{item.Createdby}</span></td>
+                        <td data-label='ID'><span>{item.Id}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
+                        <td data-label='Campo Questão'><span>{item.Campoquestao}</span></td>
+                        <td data-label='Observação Questão'><span>{item.Observacaoquestao}</span></td>
+                        <td data-label='Matéria'><span>{item.Materia}</span></td>
+                        <td data-label='ID Prova'><span>{item.IdProva}</span></td>
+                        <td data-label='Número Questão'><span>{item.Numeroquestao}</span></td>
                         <td data-label='Assunto'><span>{item.Assunto}</span></td>
+                        <td data-label=''><button onClick={(e) => updateStatus(item.IsActive, item.Id)} className={item.IsActive ? 'item-active main-button' : 'item-inactive main-button'}>{item.IsActive ? 'Desativar' : 'Ativar'}</button></td>
                     </tr>
                 ))}
                 </tbody>

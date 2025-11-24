@@ -101,7 +101,7 @@ const AcaousuarioListPage = () => {
             <table className="admin-table">
                 <thead>
                     <tr>
-                        <th>Identificador</th>
+                        <th>ID</th>
                         <th>Usuário</th>
                         <th>Ação</th>
                         <th>Criado</th>
@@ -111,7 +111,7 @@ const AcaousuarioListPage = () => {
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
-                        <td data-label='Identificador'><span>{item.Id}</span></td>
+                        <td data-label='ID'><span>{item.Id}</span></td>
                         <td data-label='Usuário'><span>{item.Usuario.Email}</span></td>
                         <td data-label='Ação'><span>{item.Acao}</span></td>
                         <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>

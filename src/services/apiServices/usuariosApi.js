@@ -111,6 +111,23 @@ const usuariosApi = {
             throw error;
         }
     },
+
+    /**
+    * Export items es based on filters.
+    * @param {Object} params - Query parameters such as `quantityMax`, `isActive`, `term`, `orderBy`, `include`.
+    * @returns {Promise<Blob>} - The exported file data.
+    */
+    updateStatus: async (params) => {
+        try {
+            const response = await api.put('/Usuarios/UpdateStatus', {}, {
+                params
+            });
+            return response.data;
+        } catch (error) {
+            console.error('Error exporting items es:', error);
+            throw error;
+        }
+    },
 };
 
 export default usuariosApi;

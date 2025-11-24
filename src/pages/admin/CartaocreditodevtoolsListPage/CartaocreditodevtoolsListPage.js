@@ -101,7 +101,7 @@ const CartaocreditodevtoolsListPage = () => {
             <table className="admin-table">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>ID</th>
                         <th>Criado</th>
                         <th>Nº Cartão</th>
                         <th>Validade</th>
@@ -112,7 +112,7 @@ const CartaocreditodevtoolsListPage = () => {
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
-                        <td data-label='Id'><span>{item.Id}</span></td>
+                        <td data-label='ID'><span>{item.Id}</span></td>
                         <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
                         <td data-label='Nº Cartão'><span>{item.Numerocartao}</span></td>
                         <td data-label='Validade'><span>{item.Datavalidade}</span></td>

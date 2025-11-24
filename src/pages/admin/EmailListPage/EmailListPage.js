@@ -18,6 +18,7 @@ const EmailListPage = () => {
     const [endDate, setEndDate] = useState('');
     const [totalPages, setTotalPages] = useState(1);
     const [totalItens, setTotalItens] = useState(0);
+    const [refresh, setRefresh] = useState(0);
     const quantity = configService.getDefaultNumberOfItemsTable(); 
     const orderBy = "Id:Desc";
 
@@ -37,7 +38,7 @@ const EmailListPage = () => {
             }
         };
         fetchItems();
-    }, [page, quantity, searchTerm, startDate, endDate, dispatch]);
+    }, [page, quantity, searchTerm, startDate, endDate, refresh, dispatch]);
 
     const handlePageChange = (newPage) => {
         if (newPage > 0 && newPage <= totalPages) {
@@ -70,6 +71,25 @@ const EmailListPage = () => {
         }
     };
 
+    const updateStatus =  async (isActive,id) => {
+        try {
+            dispatch(setLoading(true));
+            const response = await emailApi.updateStatus({ status: isActive === 1 ? 'IsDeleted' : 'IsActive', id: id });
+            
+            if (response) {
+                toast.success('Atualizado com sucesso!');
+                setRefresh(prev => prev +1);
+            } else {
+                toast.error('Erro ao atualizar o item!');
+            }
+        } catch (error) {
+            toast.error('Erro ao atualizar o item!');
+        }
+        finally{
+            dispatch(setLoading(false));
+        }
+    };
+
     return (
     <div className="container-admin-page">
         <h1>Lista dos Itens</h1>
@@ -81,25 +101,27 @@ const EmailListPage = () => {
             <table className="admin-table">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>ID</th>
                         <th>Criado</th>
                         <th>Destinatário</th>
                         <th>Assunto</th>
                         <th>Mensagem</th>
                         <th>Status</th>
                         <th>Observação</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
-                        <td data-label='Id'><span>{item.Id}</span></td>
+                        <td data-label='ID'><span>{item.Id}</span></td>
                         <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
                         <td data-label='Destinatário'><span>{item.Destinatario}</span></td>
                         <td data-label='Assunto'><span>{item.Assunto}</span></td>
                         <td data-label='Mensagem'><span>{item.Texto}</span></td>
                         <td data-label='Status'><span>{item.Status}</span></td>
                         <td data-label='Observação'><span>{item.Observacao}</span></td>
+                        <td data-label=''><button onClick={(e) => updateStatus(item.IsActive, item.Id)} className={item.IsActive ? 'item-active main-button' : 'item-inactive main-button'}>{item.IsActive ? 'Desativar' : 'Ativar'}</button></td>
                     </tr>
                 ))}
                 </tbody>

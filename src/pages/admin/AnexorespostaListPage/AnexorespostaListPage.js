@@ -101,10 +101,8 @@ const AnexorespostaListPage = () => {
             <table className="admin-table">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>IdQuestao</th>
-                        <th>Created</th>
-                        <th>Updated</th>
+                        <th>ID</th>
+                        <th>Criado</th>
                         <th>Anexo</th>
                         <th></th>
                     </tr>
@@ -112,10 +110,8 @@ const AnexorespostaListPage = () => {
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
-                        <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='IdQuestao'><span>{item.IdQuestao}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
+                        <td data-label='ID'><span>{item.Id}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
                         <td data-label='Anexo'><span>{item.Anexo}</span></td>
                         <td data-label=''><button onClick={(e) => updateStatus(item.IsActive, item.Id)} className={item.IsActive ? 'item-active main-button' : 'item-inactive main-button'}>{item.IsActive ? 'Desativar' : 'Ativar'}</button></td>
                     </tr>

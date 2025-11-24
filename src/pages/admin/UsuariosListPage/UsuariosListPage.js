@@ -18,6 +18,7 @@ const UsuariosListPage = () => {
     const [endDate, setEndDate] = useState('');
     const [totalPages, setTotalPages] = useState(1);
     const [totalItens, setTotalItens] = useState(0);
+    const [refresh, setRefresh] = useState(0);
     const quantity = configService.getDefaultNumberOfItemsTable(); 
     const orderBy = "Id:Desc";
 
@@ -37,7 +38,7 @@ const UsuariosListPage = () => {
             }
         };
         fetchItems();
-    }, [page, quantity, searchTerm, startDate, endDate, dispatch]);
+    }, [page, quantity, searchTerm, startDate, endDate, refresh, dispatch]);
 
     const handlePageChange = (newPage) => {
         if (newPage > 0 && newPage <= totalPages) {
@@ -70,6 +71,26 @@ const UsuariosListPage = () => {
         }
     };
 
+
+    const updateStatus =  async (isActive,id) => {
+        try {
+            dispatch(setLoading(true));
+            const response = await usuariosApi.updateStatus({ status: isActive === 1 ? 'IsDeleted' : 'IsActive', id: id });
+            
+            if (response) {
+                toast.success('Atualizado com sucesso!');
+                setRefresh(prev => prev +1);
+            } else {
+                toast.error('Erro ao atualizar o item!');
+            }
+        } catch (error) {
+            toast.error('Erro ao atualizar o item!');
+        }
+        finally{
+            dispatch(setLoading(false));
+        }
+    };
+
     return (
     <div className="container-admin-page">
         <h1>Lista dos Itens</h1>
@@ -81,7 +102,7 @@ const UsuariosListPage = () => {
             <table className="admin-table">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>ID</th>
                         <th>Criado</th>
                         <th>Login</th>
                         <th>Senha</th>
@@ -90,12 +111,13 @@ const UsuariosListPage = () => {
                         <th>Data de Nascimento</th>
                         <th>Admin</th>
                         <th>Instituição</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
-                        <td data-label='Id'><span>{item.Id}</span></td>
+                        <td data-label='ID'><span>{item.Id}</span></td>
                         <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
                         <td data-label='Login'><span>{item.Login}</span></td>
                         <td data-label='Senha'><span>{item.Pass}</span></td>
@@ -104,6 +126,7 @@ const UsuariosListPage = () => {
                         <td data-label='Data de Nascimento'><span>{putDateOnPattern(item.Datanascimento)}</span></td>
                         <td data-label='Admin'><span>{item.Admin}</span></td>
                         <td data-label='Instituição'><span>{item.Instituicao}</span></td>
+                        <td data-label=''><button onClick={(e) => updateStatus(item.IsActive, item.Id)} className={item.IsActive ? 'item-active main-button' : 'item-inactive main-button'}>{item.IsActive ? 'Desativar' : 'Ativar'}</button></td>
                     </tr>
                 ))}
                 </tbody>

@@ -18,6 +18,7 @@ const ProvaListPage = () => {
     const [endDate, setEndDate] = useState('');
     const [totalPages, setTotalPages] = useState(1);
     const [totalItens, setTotalItens] = useState(0);
+    const [refresh, setRefresh] = useState(0);
     const quantity = configService.getDefaultNumberOfItemsTable(); 
     const orderBy = "Id:Desc";
 
@@ -37,7 +38,7 @@ const ProvaListPage = () => {
             }
         };
         fetchItems();
-    }, [page, quantity, searchTerm, startDate, endDate, dispatch]);
+    }, [page, quantity, searchTerm, startDate, endDate, refresh, dispatch]);
 
     const handlePageChange = (newPage) => {
         if (newPage > 0 && newPage <= totalPages) {
@@ -70,6 +71,25 @@ const ProvaListPage = () => {
         }
     };
 
+    const updateStatus =  async (isActive,id) => {
+        try {
+            dispatch(setLoading(true));
+            const response = await provaApi.updateStatus({ status: isActive === 1 ? 'IsDeleted' : 'IsActive', id: id });
+            
+            if (response) {
+                toast.success('Atualizado com sucesso!');
+                setRefresh(prev => prev +1);
+            } else {
+                toast.error('Erro ao atualizar o item!');
+            }
+        } catch (error) {
+            toast.error('Erro ao atualizar o item!');
+        }
+        finally{
+            dispatch(setLoading(false));
+        }
+    };
+
     return (
     <div className="container-admin-page">
         <h1>Lista dos Itens</h1>
@@ -81,45 +101,37 @@ const ProvaListPage = () => {
             <table className="admin-table">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>IsActive</th>
-                        <th>IsDeleted</th>
-                        <th>Nomeprova</th>
+                        <th>ID</th>
+                        <th>Criado</th>
+                        <th>Nome Prova</th>
                         <th>Local</th>
-                        <th>Tipoprova</th>
-                        <th>Dataaplicacao</th>
+                        <th>Tipo Prova</th>
+                        <th>Data Aplicacao</th>
                         <th>Prova</th>
                         <th>Gabarito</th>
-                        <th>Observacaoprova</th>
-                        <th>Observacaogabarito</th>
-                        <th>Dataregistro</th>
+                        <th>Observação Prova</th>
+                        <th>Observação Gabarito</th>
+                        <th>Data Registro</th>
                         <th>Banca</th>
-                        <th>Updatedby</th>
-                        <th>Createdby</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
-                        <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
-                        <td data-label='IsActive'><span>{item.IsActive}</span></td>
-                        <td data-label='IsDeleted'><span>{item.IsDeleted}</span></td>
-                        <td data-label='Nomeprova'><span>{item.Nomeprova}</span></td>
+                        <td data-label='ID'><span>{item.Id}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
+                        <td data-label='Nome Prova'><span>{item.Nomeprova}</span></td>
                         <td data-label='Local'><span>{item.Local}</span></td>
-                        <td data-label='Tipoprova'><span>{item.Tipoprova}</span></td>
-                        <td data-label='Dataaplicacao'><span>{item.Dataaplicacao}</span></td>
+                        <td data-label='Tipo Prova'><span>{item.Tipoprova}</span></td>
+                        <td data-label='Data Aplicacao'><span>{item.Dataaplicacao}</span></td>
                         <td data-label='Prova'><span>{item.Prova}</span></td>
                         <td data-label='Gabarito'><span>{item.Gabarito}</span></td>
-                        <td data-label='Observacaoprova'><span>{item.Observacaoprova}</span></td>
-                        <td data-label='Observacaogabarito'><span>{item.Observacaogabarito}</span></td>
-                        <td data-label='Dataregistro'><span>{putDateOnPattern(item.Dataregistro)}</span></td>
+                        <td data-label='Observação Prova'><span>{item.Observacaoprova}</span></td>
+                        <td data-label='Observação Gabarito'><span>{item.Observacaogabarito}</span></td>
+                        <td data-label='Data Registro'><span>{putDateOnPattern(item.Dataregistro)}</span></td>
                         <td data-label='Banca'><span>{item.Banca}</span></td>
-                        <td data-label='Updatedby'><span>{item.Updatedby}</span></td>
-                        <td data-label='Createdby'><span>{item.Createdby}</span></td>
+                        <td data-label=''><button onClick={(e) => updateStatus(item.IsActive, item.Id)} className={item.IsActive ? 'item-active main-button' : 'item-inactive main-button'}>{item.IsActive ? 'Desativar' : 'Ativar'}</button></td>
                     </tr>
                 ))}
                 </tbody>

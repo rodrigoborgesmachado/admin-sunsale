@@ -18,6 +18,7 @@ const QuestoesavaliacaoListPage = () => {
     const [endDate, setEndDate] = useState('');
     const [totalPages, setTotalPages] = useState(1);
     const [totalItens, setTotalItens] = useState(0);
+    const [refresh, setRefresh] = useState(0);
     const quantity = configService.getDefaultNumberOfItemsTable(); 
     const orderBy = "Id:Desc";
 
@@ -37,7 +38,7 @@ const QuestoesavaliacaoListPage = () => {
             }
         };
         fetchItems();
-    }, [page, quantity, searchTerm, startDate, endDate, dispatch]);
+    }, [page, quantity, searchTerm, startDate, endDate, refresh, dispatch]);
 
     const handlePageChange = (newPage) => {
         if (newPage > 0 && newPage <= totalPages) {
@@ -70,6 +71,25 @@ const QuestoesavaliacaoListPage = () => {
         }
     };
 
+    const updateStatus =  async (isActive,id) => {
+        try {
+            dispatch(setLoading(true));
+            const response = await questoesavaliacaoApi.updateStatus({ status: isActive === 1 ? 'IsDeleted' : 'IsActive', id: id });
+            
+            if (response) {
+                toast.success('Atualizado com sucesso!');
+                setRefresh(prev => prev +1);
+            } else {
+                toast.error('Erro ao atualizar o item!');
+            }
+        } catch (error) {
+            toast.error('Erro ao atualizar o item!');
+        }
+        finally{
+            dispatch(setLoading(false));
+        }
+    };
+
     return (
     <div className="container-admin-page">
         <h1>Lista dos Itens</h1>
@@ -81,27 +101,23 @@ const QuestoesavaliacaoListPage = () => {
             <table className="admin-table">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>IsActive</th>
-                        <th>IsDeleted</th>
-                        <th>IdAvaliacao</th>
-                        <th>IdQuestao</th>
-                        <th>Notaquestao</th>
+                        <th>ID</th>
+                        <th>Criado</th>
+                        <th>ID Avaliacao</th>
+                        <th>ID Questão</th>
+                        <th>Nota Questão</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
-                        <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
-                        <td data-label='IsActive'><span>{item.IsActive}</span></td>
-                        <td data-label='IsDeleted'><span>{item.IsDeleted}</span></td>
-                        <td data-label='IdAvaliacao'><span>{item.IdAvaliacao}</span></td>
-                        <td data-label='IdQuestao'><span>{item.IdQuestao}</span></td>
-                        <td data-label='Notaquestao'><span>{item.Notaquestao}</span></td>
+                        <td data-label='ID'><span>{item.Id}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
+                        <td data-label='ID Avaliacao'><span>{item.IdAvaliacao}</span></td>
+                        <td data-label='ID Questão'><span>{item.IdQuestao}</span></td>
+                        <td data-label='Nota Questão'><span>{item.Notaquestao}</span></td>
+                        <td data-label=''><button onClick={(e) => updateStatus(item.IsActive, item.Id)} className={item.IsActive ? 'item-active main-button' : 'item-inactive main-button'}>{item.IsActive ? 'Desativar' : 'Ativar'}</button></td>
                     </tr>
                 ))}
                 </tbody>

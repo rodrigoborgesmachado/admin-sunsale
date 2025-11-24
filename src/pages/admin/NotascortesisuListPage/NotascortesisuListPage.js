@@ -18,6 +18,7 @@ const NotascortesisuListPage = () => {
     const [endDate, setEndDate] = useState('');
     const [totalPages, setTotalPages] = useState(1);
     const [totalItens, setTotalItens] = useState(0);
+    const [refresh, setRefresh] = useState(0);
     const quantity = configService.getDefaultNumberOfItemsTable(); 
     const orderBy = "Id:Desc";
 
@@ -37,7 +38,7 @@ const NotascortesisuListPage = () => {
             }
         };
         fetchItems();
-    }, [page, quantity, searchTerm, startDate, endDate, dispatch]);
+    }, [page, quantity, searchTerm, startDate, endDate, refresh, dispatch]);
 
     const handlePageChange = (newPage) => {
         if (newPage > 0 && newPage <= totalPages) {
@@ -70,6 +71,25 @@ const NotascortesisuListPage = () => {
         }
     };
 
+    const updateStatus =  async (isActive,id) => {
+        try {
+            dispatch(setLoading(true));
+            const response = await notascortesisuApi.updateStatus({ status: isActive === 1 ? 'IsDeleted' : 'IsActive', id: id });
+            
+            if (response) {
+                toast.success('Atualizado com sucesso!');
+                setRefresh(prev => prev +1);
+            } else {
+                toast.error('Erro ao atualizar o item!');
+            }
+        } catch (error) {
+            toast.error('Erro ao atualizar o item!');
+        }
+        finally{
+            dispatch(setLoading(false));
+        }
+    };
+
     return (
     <div className="container-admin-page">
         <h1>Lista dos Itens</h1>
@@ -81,7 +101,7 @@ const NotascortesisuListPage = () => {
             <table className="admin-table">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>ID</th>
                         <th>Criado</th>
                         <th>Ano</th>
                         <th>N° Edição</th>
@@ -104,12 +124,13 @@ const NotascortesisuListPage = () => {
                         <th>Quantidade Vagas</th>
                         <th>Nota de Corte</th>
                         <th>Quantidade Inscrições</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
-                        <td data-label='Id'><span>{item.Id}</span></td>
+                        <td data-label='ID'><span>{item.Id}</span></td>
                         <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
                         <td data-label='Ano'><span>{item.Year}</span></td>
                         <td data-label='N° Edição'><span>{item.Numeroedicao}</span></td>
@@ -132,6 +153,7 @@ const NotascortesisuListPage = () => {
                         <td data-label='Quantidade Vagas'><span>{item.Quantidadevagas}</span></td>
                         <td data-label='Nota de Corte'><span>{item.Notacorte}</span></td>
                         <td data-label='Quantidade Inscrições'><span>{item.Quantidadeinscricoes}</span></td>
+                        <td data-label=''><button onClick={(e) => updateStatus(item.IsActive, item.Id)} className={item.IsActive ? 'item-active main-button' : 'item-inactive main-button'}>{item.IsActive ? 'Desativar' : 'Ativar'}</button></td>
                     </tr>
                 ))}
                 </tbody>

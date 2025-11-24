@@ -101,24 +101,18 @@ const CategoriaalimentosListPage = () => {
             <table className="admin-table">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>IsActive</th>
-                        <th>IsDeleted</th>
-                        <th>Descricao</th>
+                        <th>ID</th>
+                        <th>Criado</th>
+                        <th>Descrição</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
-                        <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
-                        <td data-label='IsActive'><span>{item.IsActive}</span></td>
-                        <td data-label='IsDeleted'><span>{item.IsDeleted}</span></td>
-                        <td data-label='Descricao'><span>{item.Descricao}</span></td>
+                        <td data-label='ID'><span>{item.Id}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
+                        <td data-label='Descrição'><span>{item.Descricao}</span></td>
                         <td data-label=''><button onClick={(e) => updateStatus(item.IsActive, item.Id)} className={item.IsActive ? 'item-active main-button' : 'item-inactive main-button'}>{item.IsActive ? 'Desativar' : 'Ativar'}</button></td>
                     </tr>
                 ))}

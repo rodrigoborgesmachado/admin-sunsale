@@ -101,14 +101,11 @@ const AlimentosListPage = () => {
             <table className="admin-table">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Categoriacodigo</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>IsActive</th>
-                        <th>IsDeleted</th>
-                        <th>Numeroalimento</th>
-                        <th>Descricao</th>
+                        <th>ID</th>
+                        <th>Cod Categoria</th>
+                        <th>Criado</th>
+                        <th>N° Alimento</th>
+                        <th>Descrição</th>
                         <th>Umidade</th>
                         <th>Energiakcal</th>
                         <th>Energiakg</th>
@@ -141,11 +138,10 @@ const AlimentosListPage = () => {
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
-                        <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='Categoriacodigo'><span>{item.Categoriacodigo}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
-                        <td data-label='Numeroalimento'><span>{item.Numeroalimento}</span></td>
+                        <td data-label='ID'><span>{item.Id}</span></td>
+                        <td data-label='Cod Categoria'><span>{item.Categoriacodigo}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
+                        <td data-label='N° Alimento'><span>{item.Numeroalimento}</span></td>
                         <td data-label='Descricao'><span>{item.Descricao}</span></td>
                         <td data-label='Umidade'><span>{item.Umidade}</span></td>
                         <td data-label='Energiakcal'><span>{item.Energiakcal}</span></td>

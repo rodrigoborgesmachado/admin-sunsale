@@ -21,6 +21,17 @@
     --button-color-primary-wrong: #D62828; 
     --button-color-primary-wrong-hover: #A61616;
 
+    /* Button - Activate (Ativar) */
+    --button-activate-bg: #2D6A4F;
+    --button-activate-bg-hover: #1F5237;
+    --button-activate-text: #FFFFFF;
+
+    /* Button - Deactivate (Desativar) */
+    --button-deactivate-bg: #D62828;
+    --button-deactivate-bg-hover: #A61616;
+    --button-deactivate-text: #FFFFFF;
+
+
     /* Secondary Button Colors */
     --button-color-secundary: #3D5A80; 
     --button-color-secundary-hover: #293F50;
@@ -258,7 +269,7 @@ body {
     width: 100%;
 }
 
-.item-active{
+/* .item-active{
     background-color: var(--button-color-primary-right);
     color: var(--text-color-secondary) !important;
     padding: var(--default-spacing);
@@ -268,6 +279,24 @@ body {
     background-color: var(--button-color-primary-wrong);
     color: var(--text-color-primary) !important;
     padding: var(--default-spacing);
+} */
+
+.item-active {
+    background-color: var(--button-deactivate-bg);
+    color: var(--button-deactivate-text) !important;
+}
+
+.item-active:hover {
+    background-color: var(--button-deactivate-bg-hover);
+}
+
+.item-inactive {
+    background-color: var(--button-activate-bg);
+    color: var(--button-activate-text) !important;
+}
+
+.item-inactive:hover {
+    background-color: var(--button-activate-bg-hover);
 }
 
 .item-in-progress{

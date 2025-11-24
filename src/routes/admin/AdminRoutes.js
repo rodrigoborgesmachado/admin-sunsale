@@ -55,52 +55,52 @@ const AdminRoutes = () => (
     <Routes>
       <Route path="/" element={<DashboardPage />} />
       <Route path="/acoes" element={<AcaousuarioListPage />} />
-      <Route path="/Alimentos" element={<AlimentosListPage />} />
-      <Route path="/Anexoresposta" element={<AnexorespostaListPage />} />
-      <Route path="/Anexosquestoes" element={<AnexosquestoesListPage />} />
-      <Route path="/Avaliacao" element={<AvaliacaoListPage />} />
-      <Route path="/Biomas" element={<BiomasListPage />} />
+      <Route path="/alimentos" element={<AlimentosListPage />} />
+      <Route path="/anexosresposta" element={<AnexorespostaListPage />} />
+      <Route path="/anexosquestoes" element={<AnexosquestoesListPage />} />
+      <Route path="/avaliacao" element={<AvaliacaoListPage />} />
+      <Route path="/biomas" element={<BiomasListPage />} />
       <Route path="/cartoes" element={<CartaocreditodevtoolsListPage />} />
       <Route path="/cartoes/:id" element={<CartaocreditodevtoolsListPage />} />
-      <Route path="/Categoriaalimentos" element={<CategoriaalimentosListPage />} />
-      <Route path="/ComentariosQuestoes" element={<ComentariosquestoesListPage />} />
+      <Route path="/categoriaalimentos" element={<CategoriaalimentosListPage />} />
+      <Route path="/comentariosquestoes" element={<ComentariosquestoesListPage />} />
       <Route path="/contas" element={<ContabancofordevListPage />} />
       <Route path="/crudformsinstall" element={<CrudformsinstaladorListPage />} />
       <Route path="/email" element={<EmailListPage />} />
       <Route path="/empresas" element={<EmpresafordevListPage />} />
-      <Route path="/Imagensbioma" element={<ImagensbiomaListPage />} />
-      <Route path="/Imagensplanta" element={<ImagensplantaListPage />} />
-      <Route path="/LicencasSunSalePro" element={<LicencassunsaleproListPage />} />
-      <Route path="/Logger" element={<LoggerListPage />} />
+      <Route path="/imgbioma" element={<ImagensbiomaListPage />} />
+      <Route path="/imgplanta" element={<ImagensplantaListPage />} />
+      <Route path="/licencassunsalepro" element={<LicencassunsaleproListPage />} />
+      <Route path="/logger" element={<LoggerListPage />} />
       <Route path="/metas" element={<MetasListPage />} />
       <Route path="/notassisu" element={<NotascortesisuListPage />} />
-      <Route path="/Palavras" element={<PalavrasListPage />} />
-      <Route path="/Pesos" element={<PesosListPage />} />
+      <Route path="/palavras" element={<PalavrasListPage />} />
+      <Route path="/pesos" element={<PesosListPage />} />
       <Route path="/pessoas" element={<PessoasfordevListPage />} />
-      <Route path="/Plantas" element={<PlantasListPage />} />
-      <Route path="/Postagem" element={<PostagemListPage />} />
-      <Route path="/Prova" element={<ProvaListPage />} />
-      <Route path="/Questoes" element={<QuestoesListPage />} />
-      <Route path="/Questoesavaliacao" element={<QuestoesavaliacaoListPage />} />
-      <Route path="/Recuperasenha" element={<RecuperasenhaListPage />} />
-      <Route path="/Recuperasenhacrudforms" element={<RecuperasenhacrudformsListPage />} />
-      <Route path="/Respostasavaliacoes" element={<RespostasavaliacoesListPage />} />
-      <Route path="/Respostasquestoes" element={<RespostasquestoesListPage />} />
-      <Route path="/Respostasusuarios" element={<RespostasusuariosListPage />} />
-      <Route path="/Resultadossoletrando" element={<ResultadossoletrandoListPage />} />
+      <Route path="/plantas" element={<PlantasListPage />} />
+      <Route path="/postagem" element={<PostagemListPage />} />
+      <Route path="/prova" element={<ProvaListPage />} />
+      <Route path="/questoes" element={<QuestoesListPage />} />
+      <Route path="/questoesavaliacao" element={<QuestoesavaliacaoListPage />} />
+      <Route path="/recuperasenha" element={<RecuperasenhaListPage />} />
+      <Route path="/recuperasenhacrudforms" element={<RecuperasenhacrudformsListPage />} />
+      <Route path="/respostasavaliacoes" element={<RespostasavaliacoesListPage />} />
+      <Route path="/respostasquestoes" element={<RespostasquestoesListPage />} />
+      <Route path="/respostasusuarios" element={<RespostasusuariosListPage />} />
+      <Route path="/resultadossoletrando" element={<ResultadossoletrandoListPage />} />
       <Route path="/tabuadadivertida" element={<ResultadostabuadadivertidaListPage />} />
-      <Route path="/savedResultswpp" element={<SavedresultswppListPage />} />
-      <Route path="/Simulados" element={<SimuladosListPage />} />
-      <Route path="/Tipoperfil" element={<TipoperfilListPage />} />
-      <Route path="/TipoPostagem" element={<TipopostagemListPage />} />
-      <Route path="/TipoProva" element={<TipoprovaListPage />} />
-      <Route path="/TipoProvaAssociado" element={<TipoprovaassociadoListPage />} />
+      <Route path="/savedresultswpp" element={<SavedresultswppListPage />} />
+      <Route path="/simulados" element={<SimuladosListPage />} />
+      <Route path="/tipoperfil" element={<TipoperfilListPage />} />
+      <Route path="/tipopostagem" element={<TipopostagemListPage />} />
+      <Route path="/tipoprova" element={<TipoprovaListPage />} />
+      <Route path="/tipoprovaassociado" element={<TipoprovaassociadoListPage />} />
       <Route path="/usuarios" element={<UsuariosListPage />} />
-      <Route path="/Usuarioscrudforms" element={<UsuarioscrudformsListPage />} />
-      <Route path="/Veiculosfordev" element={<VeiculosfordevListPage />} />
-      <Route path="/Verboconjugado" element={<VerboconjugadoListPage />} />
-      <Route path="/Verbos" element={<VerbosListPage />} />
-      <Route path="/VerificacaoUsuario" element={<VerificacaousuarioListPage />} />
+      <Route path="/usuarioscrudforms" element={<UsuarioscrudformsListPage />} />
+      <Route path="/veiculosfordev" element={<VeiculosfordevListPage />} />
+      <Route path="/verboconjugado" element={<VerboconjugadoListPage />} />
+      <Route path="/verbos" element={<VerbosListPage />} />
+      <Route path="/verificacaousuario" element={<VerificacaousuarioListPage />} />
       <Route path="/pokemon" element={<WhosthatpokemonresultListPage />} />
       <Route path="/*" element={<DashboardPage />} />
       </Routes>

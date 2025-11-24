@@ -18,6 +18,7 @@ const PlantasListPage = () => {
     const [endDate, setEndDate] = useState('');
     const [totalPages, setTotalPages] = useState(1);
     const [totalItens, setTotalItens] = useState(0);
+    const [refresh, setRefresh] = useState(0);
     const quantity = configService.getDefaultNumberOfItemsTable(); 
     const orderBy = "Id:Desc";
 
@@ -37,7 +38,7 @@ const PlantasListPage = () => {
             }
         };
         fetchItems();
-    }, [page, quantity, searchTerm, startDate, endDate, dispatch]);
+    }, [page, quantity, searchTerm, startDate, endDate, refresh, dispatch]);
 
     const handlePageChange = (newPage) => {
         if (newPage > 0 && newPage <= totalPages) {
@@ -70,6 +71,25 @@ const PlantasListPage = () => {
         }
     };
 
+    const updateStatus =  async (isActive,id) => {
+        try {
+            dispatch(setLoading(true));
+            const response = await plantasApi.updateStatus({ status: isActive === 1 ? 'IsDeleted' : 'IsActive', id: id });
+            
+            if (response) {
+                toast.success('Atualizado com sucesso!');
+                setRefresh(prev => prev +1);
+            } else {
+                toast.error('Erro ao atualizar o item!');
+            }
+        } catch (error) {
+            toast.error('Erro ao atualizar o item!');
+        }
+        finally{
+            dispatch(setLoading(false));
+        }
+    };
+
     return (
     <div className="container-admin-page">
         <h1>Lista dos Itens</h1>
@@ -81,41 +101,37 @@ const PlantasListPage = () => {
             <table className="admin-table">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th>IsActive</th>
-                        <th>IsDeleted</th>
-                        <th>Idbioma</th>
-                        <th>Nomecientifico</th>
-                        <th>Nomepopular</th>
-                        <th>Habitate</th>
+                        <th>ID</th>
+                        <th>Criado</th>
+                        <th>ID bioma</th>
+                        <th>Nome científico</th>
+                        <th>Nome popular</th>
+                        <th>Habitat</th>
                         <th>Folha</th>
                         <th>Flor</th>
                         <th>Fruto</th>
-                        <th>Familia</th>
+                        <th>Família</th>
                         <th>Tribo</th>
-                        <th>Idusuario</th>
+                        <th>ID usuário</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 {items.map((item) => (
                     <tr key={item.Id}>
-                        <td data-label='Id'><span>{item.Id}</span></td>
-                        <td data-label='Created'><span>{putDateOnPattern(item.Created)}</span></td>
-                        <td data-label='Updated'><span>{putDateOnPattern(item.Updated)}</span></td>
-                        <td data-label='IsActive'><span>{item.IsActive}</span></td>
-                        <td data-label='IsDeleted'><span>{item.IsDeleted}</span></td>
-                        <td data-label='Idbioma'><span>{item.Idbioma}</span></td>
-                        <td data-label='Nomecientifico'><span>{item.Nomecientifico}</span></td>
-                        <td data-label='Nomepopular'><span>{item.Nomepopular}</span></td>
-                        <td data-label='Habitate'><span>{item.Habitate}</span></td>
+                        <td data-label='ID'><span>{item.Id}</span></td>
+                        <td data-label='Criado'><span>{putDateOnPattern(item.Created)}</span></td>
+                        <td data-label='ID bioma'><span>{item.Idbioma}</span></td>
+                        <td data-label='Nome científico'><span>{item.Nomecientifico}</span></td>
+                        <td data-label='Nome popular'><span>{item.Nomepopular}</span></td>
+                        <td data-label='Habitat'><span>{item.Habitate}</span></td>
                         <td data-label='Folha'><span>{item.Folha}</span></td>
                         <td data-label='Flor'><span>{item.Flor}</span></td>
                         <td data-label='Fruto'><span>{item.Fruto}</span></td>
-                        <td data-label='Familia'><span>{item.Familia}</span></td>
+                        <td data-label='Família'><span>{item.Familia}</span></td>
                         <td data-label='Tribo'><span>{item.Tribo}</span></td>
-                        <td data-label='Idusuario'><span>{item.Idusuario}</span></td>
+                        <td data-label='ID usuário'><span>{item.Idusuario}</span></td>
+                        <td data-label=''><button onClick={(e) => updateStatus(item.IsActive, item.Id)} className={item.IsActive ? 'item-active main-button' : 'item-inactive main-button'}>{item.IsActive ? 'Desativar' : 'Ativar'}</button></td>
                     </tr>
                 ))}
                 </tbody>
