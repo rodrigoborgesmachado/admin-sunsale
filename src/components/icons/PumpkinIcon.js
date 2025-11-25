@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FoodIcon = ({ size = 30, color = '#023E7D' }) => (
+const PumpkinIcon = ({ size = 24, color = '#023E7D' }) => (
   <svg
     width={size}
     height={size}
@@ -9,42 +9,33 @@ const FoodIcon = ({ size = 30, color = '#023E7D' }) => (
     xmlns="http://www.w3.org/2000/svg"
   >
 
-    {/* Contorno orgânico da folha de alface */}
+    {/* Corpo da abóbora */}
     <path
-      d="
-        M12 3.5
-        C9 3.5 7 5.5 7 8
-        C5 8.5 4 10.5 4.5 12.5
-        C5 14.5 6.7 16 8.5 16
-        C9 18 10.3 20 12 20
-        C13.7 20 15 18 15.5 16
-        C17.3 16 19 14.5 19.5 12.5
-        C20 10.5 19 8.5 17 8
-        C17 5.5 15 3.5 12 3.5Z
-      "
+      d="M12 19C8 19 5 16 5 12C5 8 8 5 12 5C16 5 19 8 19 12C19 16 16 19 12 19Z"
       stroke={color}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
 
-    {/* Veia central */}
+    {/* Gomos da abóbora */}
     <path
-      d="M12 6V18"
+      d="M9 6.5C8 8 7.5 10 7.5 12C7.5 14 8 16 9 17.5"
       stroke={color}
       strokeWidth="2"
       strokeLinecap="round"
     />
 
-    {/* Veias laterais */}
     <path
-      d="M9 10C10 11 11 11.5 12 12"
+      d="M15 6.5C16 8 16.5 10 16.5 12C16.5 14 16 16 15 17.5"
       stroke={color}
       strokeWidth="2"
       strokeLinecap="round"
     />
+
+    {/* Talo */}
     <path
-      d="M15 10C14 11 13 11.5 12 12"
+      d="M12 5V3.5"
       stroke={color}
       strokeWidth="2"
       strokeLinecap="round"
@@ -53,4 +44,4 @@ const FoodIcon = ({ size = 30, color = '#023E7D' }) => (
   </svg>
 );
 
-export default FoodIcon;
+export default PumpkinIcon;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CartIconWithNumber = ({ size = 32, color = '#1B4332', number = 0 }) => (
+const CartIconWithNumber = ({ size = 32, color = '#023E7D', number = 0 }) => (
     <svg
         width={size}
         height={size}

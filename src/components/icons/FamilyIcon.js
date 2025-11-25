@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FamilyIcon = ({ size = 32, color = '#1B4332' }) => (
+const FamilyIcon = ({ size = 32, color = '#023E7D' }) => (
     <svg
         width={size}
         height={size}

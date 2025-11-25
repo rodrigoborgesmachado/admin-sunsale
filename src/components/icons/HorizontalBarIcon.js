@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HorizontalBarIcon = ({ size = 32, color = '#1B4332' }) => (
+const HorizontalBarIcon = ({ size = 32, color = '#023E7D' }) => (
     <svg
         width={size}
         height={size}

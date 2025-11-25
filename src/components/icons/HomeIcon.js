@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HomeIcon = ({ size = 21, color = '#1B4332' }) => (
+const HomeIcon = ({ size = 21, color = '#023E7D' }) => (
   <svg
     width={size}
     height={size}

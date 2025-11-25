@@ -1,6 +1,6 @@
 import React from "react";
 
-const LogIcon = ({ size = 24, color = "#1B4332" }) => (
+const LogIcon = ({ size = 24, color = "#023E7D" }) => (
   <svg
     width={size}
     height={size}

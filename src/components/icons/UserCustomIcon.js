@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserCustomIcon = ({ size = 24, color = '#1B4332' }) => (
+const UserCustomIcon = ({ size = 24, color = '#023E7D' }) => (
   <svg
     width={size}
     height={(size / 50) * 54} // Adjust height to maintain aspect ratio

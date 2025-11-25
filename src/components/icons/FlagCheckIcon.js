@@ -1,35 +1,41 @@
 import React from 'react';
 
-const LogoffIcon = ({ size = 24, color = '#023E7D' }) => (
+const FlagCheckIcon = ({ size = 24, color = '#023E7D' }) => (
   <svg
     width={size}
     height={size}
-    viewBox="0 0 30 30"
+    viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
+
+    {/* Haste da bandeira */}
     <path
-      d="M14.9948 3.75H3.75V26.25H15"
+      d="M5 3V21"
+      stroke={color}
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+
+    {/* Bandeira */}
+    <path
+      d="M5 4H15C16.5 4 18 5 18 6.5C18 8 16.5 9 15 9H5"
       stroke={color}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
+
+    {/* Check */}
     <path
-      d="M20.625 20.625L26.25 15L20.625 9.375"
+      d="M10 6.5L11.5 8L14 5.5"
       stroke={color}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <path
-      d="M10 14.9948H26.25"
-      stroke={color}
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+
   </svg>
 );
 
-export default LogoffIcon;
+export default FlagCheckIcon;

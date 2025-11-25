@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const ArrowIcon = ({ size = 21, color = "#1B4332" }) => (
+const ArrowIcon = ({ size = 21, color = "#023E7D" }) => (
   <svg 
     width={size} 
     height={size} 

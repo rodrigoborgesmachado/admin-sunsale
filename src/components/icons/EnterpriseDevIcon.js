@@ -1,5 +1,5 @@
 // EnterpriseIcon.jsx
-const EnterpriseIcon = ({ size = 21, color = "#1B4332" }) => (
+const EnterpriseIcon = ({ size = 21, color = "#023E7D" }) => (
   <svg
     width={size}
     height={size}

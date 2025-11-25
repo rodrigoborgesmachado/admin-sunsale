@@ -1,35 +1,45 @@
 import React from 'react';
 
-const LogoffIcon = ({ size = 24, color = '#023E7D' }) => (
+const KeyIcon = ({ size = 24, color = '#023E7D' }) => (
   <svg
     width={size}
     height={size}
-    viewBox="0 0 30 30"
+    viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
+    {/* Cabeça da chave */}
+    <circle
+      cx="9"
+      cy="10"
+      r="4"
+      stroke={color}
+      strokeWidth="2"
+    />
+
+    {/* Corpo da chave */}
     <path
-      d="M14.9948 3.75H3.75V26.25H15"
+      d="M13 10H21"
       stroke={color}
       strokeWidth="2"
       strokeLinecap="round"
-      strokeLinejoin="round"
     />
+
+    {/* Dentes da chave */}
     <path
-      d="M20.625 20.625L26.25 15L20.625 9.375"
+      d="M17 10V12"
       stroke={color}
       strokeWidth="2"
       strokeLinecap="round"
-      strokeLinejoin="round"
     />
     <path
-      d="M10 14.9948H26.25"
+      d="M19 10V13"
       stroke={color}
       strokeWidth="2"
       strokeLinecap="round"
-      strokeLinejoin="round"
     />
+
   </svg>
 );
 
-export default LogoffIcon;
+export default KeyIcon;
